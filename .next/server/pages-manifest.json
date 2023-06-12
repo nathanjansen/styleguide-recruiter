@@ -3,5 +3,8 @@
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
   "/": "pages/index.js",
-  "/typography": "pages/typography.js"
+  "/buttons": "pages/buttons.js",
+  "/layout": "pages/layout.js",
+  "/spacing": "pages/spacing.js",
+  "/forms": "pages/forms.js"
 }

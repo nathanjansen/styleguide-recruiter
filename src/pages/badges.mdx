@@ -1,438 +1,164 @@
 export const description =
-  'On this page, we’ll dive into the different message endpoints you can use to manage messages programmatically.'
+    'On this page, we’ll dive into the different message endpoints you can use to manage messages programmatically.'
 
-# Messages
-
-Messages are what conversations are made of in Protocol — they are the basic building blocks of your conversations with your Protocol contacts. On this page, we'll dive into the different message endpoints you can use to manage messages programmatically. We'll look at how to query, send, update, and delete messages. {{ className: 'lead' }}
-
-## The message model
-
-The message model contains all the information about the messages and attachments you send to your contacts and groups, including how your contacts have reacted to them.
-
-### Properties
-
-<Properties>
-  <Property name="id" type="string">
-    Unique identifier for the message.
-  </Property>
-  <Property name="conversation_id" type="string">
-    Unique identifier for the conversation the message belongs to.
-  </Property>
-  <Property name="contact" type="object">
-    The contact object for the contact who sent the message.
-  </Property>
-  <Property name="message" type="string">
-    The message content.
-  </Property>
-  <Property name="reactions" type="array">
-    An array of reaction objects associated with the message.
-  </Property>
-  <Property name="attachments" type="array">
-    An array of attachment objects associated with the message.
-  </Property>
-  <Property name="read_at" type="timestamp">
-    Timestamp of when the message was read.
-  </Property>
-  <Property name="created_at" type="timestamp">
-    Timestamp of when the message was created.
-  </Property>
-  <Property name="updated_at" type="timestamp">
-    Timestamp of when the message was last updated.
-  </Property>
-</Properties>
+# Badges, Alerts, Toasters
+On this page we will discuss badges, alerts and toasters
+## Badges
 
 ---
+## Alerts
+<div className="rounded-xl bg-alert-primaryp-4 mb-6">
+    <div className="flex">
+        <div className="flex-shrink-0 items-center p-2">
+            <svg className="h-6" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9.5 0.15625C7.65198 0.15625 5.84547 0.704251 4.30889 1.73096C2.77232 2.75766 1.57471 4.21695 0.867505 5.9243C0.160299 7.63165 -0.0247389 9.51037 0.335792 11.3229C0.696322 13.1354 1.58623 14.8003 2.89298 16.107C4.19972 17.4138 5.86462 18.3037 7.67713 18.6642C9.48964 19.0247 11.3684 18.8397 13.0757 18.1325C14.783 17.4253 16.2423 16.2277 17.269 14.6911C18.2958 13.1545 18.8438 11.348 18.8438 9.5C18.8411 7.02269 17.8559 4.64759 16.1041 2.89586C14.3524 1.14413 11.9773 0.158866 9.5 0.15625ZM9.5 17.4062C7.9363 17.4062 6.4077 16.9426 5.10753 16.0738C3.80735 15.2051 2.79399 13.9703 2.19558 12.5256C1.59718 11.0809 1.44061 9.49123 1.74567 7.95757C2.05073 6.4239 2.80373 5.01515 3.90944 3.90944C5.01515 2.80373 6.42391 2.05073 7.95757 1.74567C9.49123 1.4406 11.0809 1.59717 12.5256 2.19558C13.9703 2.79398 15.2051 3.80735 16.0738 5.10752C16.9426 6.4077 17.4063 7.93629 17.4063 9.5C17.4039 11.5961 16.5701 13.6057 15.0879 15.0879C13.6057 16.5701 11.5961 17.4039 9.5 17.4062ZM10.9375 13.8125C10.9375 14.0031 10.8618 14.1859 10.727 14.3207C10.5922 14.4555 10.4094 14.5312 10.2188 14.5312C9.83751 14.5312 9.47187 14.3798 9.20229 14.1102C8.9327 13.8406 8.78125 13.475 8.78125 13.0938V9.5C8.59063 9.5 8.40781 9.42427 8.27302 9.28948C8.13823 9.15469 8.0625 8.97187 8.0625 8.78125C8.0625 8.59063 8.13823 8.40781 8.27302 8.27302C8.40781 8.13823 8.59063 8.0625 8.78125 8.0625C9.1625 8.0625 9.52814 8.21395 9.79772 8.48353C10.0673 8.75312 10.2188 9.11875 10.2188 9.5V13.0938C10.4094 13.0938 10.5922 13.1695 10.727 13.3043C10.8618 13.4391 10.9375 13.6219 10.9375 13.8125ZM8.0625 5.54688C8.0625 5.33364 8.12573 5.1252 8.2442 4.9479C8.36267 4.7706 8.53105 4.63242 8.72805 4.55082C8.92505 4.46922 9.14183 4.44787 9.35096 4.48947C9.5601 4.53107 9.7522 4.63375 9.90298 4.78453C10.0538 4.9353 10.1564 5.12741 10.198 5.33654C10.2396 5.54568 10.2183 5.76245 10.1367 5.95946C10.0551 6.15646 9.9169 6.32484 9.7396 6.4433C9.56231 6.56177 9.35386 6.625 9.14063 6.625C8.85469 6.625 8.58047 6.51141 8.37828 6.30922C8.17609 6.10704 8.0625 5.83281 8.0625 5.54688Z" fill="white"/>
+            </svg>
+        </div>
+        <div className="ml-3">
+            <div className="text-sm font-medium text-xl text-white">Nieuwe sollicitaties staan klaar</div>
+            <div className="mt-2 text-sm font-medium text-white">
+                <p>De wijzigingen zijn doorgevoerd en uw profiel is bewerkt. </p>
+            </div>
 
-## List all messages {{ tag: 'GET', label: '/v1/messages' }}
+        </div>
+    </div>
+</div>
 
-<Row>
-  <Col>
+<div className="rounded-xl bg-alert-success p-4 mb-6">
+    <div className="flex">
+        <div className="flex-shrink-0 items-center p-2">
+            <svg className="h-6 text-green-400" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M15.4342 7.87199C15.5088 7.94658 15.5681 8.03515 15.6085 8.13265C15.6489 8.23014 15.6697 8.33465 15.6697 8.44018C15.6697 8.54572 15.6489 8.65023 15.6085 8.74772C15.5681 8.84522 15.5088 8.93379 15.4342 9.00838L9.81246 14.6301C9.73787 14.7048 9.6493 14.764 9.55181 14.8044C9.45431 14.8448 9.34981 14.8656 9.24427 14.8656C9.13873 14.8656 9.03422 14.8448 8.93673 14.8044C8.83923 14.764 8.75066 14.7048 8.67607 14.6301L6.26677 12.2208C6.11608 12.0701 6.03142 11.8657 6.03142 11.6526C6.03142 11.4395 6.11608 11.2351 6.26677 11.0844C6.41747 10.9337 6.62185 10.849 6.83497 10.849C7.04808 10.849 7.25246 10.9337 7.40316 11.0844L9.24427 12.9265L14.2978 7.87199C14.3724 7.79732 14.4609 7.73809 14.5584 7.69767C14.6559 7.65726 14.7604 7.63645 14.866 7.63645C14.9715 7.63645 15.076 7.65726 15.1735 7.69767C15.271 7.73809 15.3596 7.79732 15.4342 7.87199ZM21.2908 10.8495C21.2908 12.9144 20.6785 14.9329 19.5313 16.6498C18.3841 18.3667 16.7535 19.7049 14.8458 20.4951C12.9381 21.2853 10.8389 21.492 8.81367 21.0892C6.78844 20.6863 4.92816 19.692 3.46806 18.2319C2.00795 16.7718 1.01361 14.9115 0.610769 12.8863C0.207927 10.8611 0.41468 8.76187 1.20488 6.85415C1.99508 4.94644 3.33324 3.31588 5.05014 2.16869C6.76704 1.02149 8.78557 0.40918 10.8505 0.40918C13.6185 0.412103 16.2723 1.513 18.2297 3.4703C20.187 5.42761 21.2879 8.08144 21.2908 10.8495ZM19.6846 10.8495C19.6846 9.10227 19.1665 7.39428 18.1958 5.94152C17.2251 4.48876 15.8454 3.35647 14.2311 2.68784C12.6169 2.0192 10.8407 1.84426 9.12702 2.18513C7.41337 2.52599 5.83928 3.36736 4.60381 4.60283C3.36834 5.8383 2.52697 7.41239 2.18611 9.12604C1.84524 10.8397 2.02019 12.6159 2.68882 14.2302C3.35745 15.8444 4.48974 17.2241 5.9425 18.1948C7.39526 19.1655 9.10325 19.6836 10.8505 19.6836C13.1926 19.6809 15.438 18.7493 17.0942 17.0932C18.7503 15.4371 19.6819 13.1916 19.6846 10.8495Z" fill="#0C6E45"/>
+            </svg>
+        </div>
+        <div className="ml-3">
+            <div className="text-sm font-medium text-xl text-green-800">Profiel opgeslagen</div>
+            <div className="mt-2 text-sm font-medium text-green-700">
+                <p>De wijzigingen zijn doorgevoerd en uw profiel is bewerkt. </p>
+            </div>
+            <div className="mt-4">
+                <div className="-mx-2 -my-1.5 flex">
+                    <button type="button" className="rounded-md px-2 py-1.5 text-sm font-medium text-green-800 hover:bg-green-100 focus:outline-none focus:ring-2 focus:ring-green-600 focus:ring-offset-2 focus:ring-offset-green-50">Bekijk profiel</button>
+                    <button type="button" className="ml-3 rounded-md px-2 py-1.5 text-sm font-medium text-green-800 hover:bg-green-100 focus:outline-none focus:ring-2 focus:ring-green-600 focus:ring-offset-2 focus:ring-offset-green-50">Sluiten</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
-    This endpoint allows you to retrieve a paginated list of all your messages (in a conversation if a conversation id is provided). By default, a maximum of ten messages are shown per page.
+<div className="rounded-xl bg-alert-warning p-4 mb-6">
+    <div className="flex text-coral-600">
+        <div className="flex-shrink-0 items-center p-2">
+            <svg className="h-6" viewBox="0 0 20 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M19.3509 14.164L11.8357 1.11271C11.6479 0.792961 11.3798 0.527838 11.058 0.343624C10.7361 0.15941 10.3717 0.0625 10.0009 0.0625C9.6301 0.0625 9.26571 0.15941 8.94388 0.343624C8.62205 0.527838 8.35395 0.792961 8.16616 1.11271L0.650922 14.164C0.470226 14.4733 0.375 14.8251 0.375 15.1833C0.375 15.5415 0.470226 15.8932 0.650922 16.2025C0.836315 16.5242 1.10396 16.7907 1.42639 16.9748C1.74882 17.1589 2.11442 17.2539 2.48569 17.2501H17.5162C17.8871 17.2536 18.2524 17.1585 18.5745 16.9744C18.8966 16.7903 19.164 16.5239 19.3492 16.2025C19.5302 15.8934 19.6257 15.5417 19.626 15.1835C19.6263 14.8253 19.5314 14.4735 19.3509 14.164ZM18.159 15.5141C18.0935 15.6259 17.9994 15.7182 17.8864 15.7816C17.7735 15.8451 17.6457 15.8773 17.5162 15.8751H2.48569C2.35616 15.8773 2.22837 15.8451 2.11541 15.7816C2.00245 15.7182 1.90839 15.6259 1.84288 15.5141C1.78353 15.4136 1.75223 15.2991 1.75223 15.1824C1.75223 15.0657 1.78353 14.9512 1.84288 14.8507L9.35811 1.79935C9.42495 1.68813 9.51943 1.59609 9.63238 1.53219C9.74532 1.4683 9.87288 1.43472 10.0026 1.43472C10.1324 1.43472 10.26 1.4683 10.3729 1.53219C10.4858 1.59609 10.5803 1.68813 10.6472 1.79935L18.1624 14.8507C18.2212 14.9515 18.2519 15.0662 18.2513 15.1829C18.2507 15.2996 18.2188 15.414 18.159 15.5141ZM9.31342 10.3751V6.93756C9.31342 6.75522 9.38585 6.58035 9.51479 6.45142C9.64372 6.32249 9.81859 6.25006 10.0009 6.25006C10.1833 6.25006 10.3581 6.32249 10.4871 6.45142C10.616 6.58035 10.6884 6.75522 10.6884 6.93756V10.3751C10.6884 10.5574 10.616 10.7323 10.4871 10.8612C10.3581 10.9901 10.1833 11.0626 10.0009 11.0626C9.81859 11.0626 9.64372 10.9901 9.51479 10.8612C9.38585 10.7323 9.31342 10.5574 9.31342 10.3751ZM11.0322 13.4688C11.0322 13.6728 10.9717 13.8721 10.8584 14.0417C10.7451 14.2113 10.584 14.3435 10.3956 14.4216C10.2071 14.4996 9.99978 14.52 9.79974 14.4802C9.59969 14.4405 9.41594 14.3422 9.27172 14.198C9.12749 14.0538 9.02928 13.87 8.98949 13.67C8.9497 13.4699 8.97012 13.2626 9.04817 13.0742C9.12622 12.8857 9.2584 12.7247 9.42799 12.6114C9.59758 12.498 9.79696 12.4376 10.0009 12.4376C10.2744 12.4376 10.5367 12.5462 10.7301 12.7396C10.9235 12.933 11.0322 13.1953 11.0322 13.4688Z" fill="currentColor"/>
+            </svg>
+        </div>
+        <div className="ml-3">
+            <div className="text-sm font-medium text-xl text-coral-700">Let op. Er is iets misgegaan bij het opslaan.</div>
+            <div className="mt-2 text-sm font-medium text-coral-700">
+                <p>De wijzigingen zijn doorgevoerd en uw profiel is bewerkt. </p>
+            </div>
+        </div>
+    </div>
+</div>
 
-    ### Optional attributes
+<div className="rounded-xl bg-alert-info p-4 mb-6">
+    <div className="flex text-coral-600">
+        <div className="flex-shrink-0 items-center p-2">
+            <svg className="h-6" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9.5 0.15625C7.65198 0.15625 5.84547 0.704251 4.30889 1.73096C2.77232 2.75766 1.57471 4.21695 0.867505 5.9243C0.160299 7.63165 -0.0247389 9.51037 0.335792 11.3229C0.696322 13.1354 1.58623 14.8003 2.89298 16.107C4.19972 17.4138 5.86462 18.3037 7.67713 18.6642C9.48964 19.0247 11.3684 18.8397 13.0757 18.1325C14.783 17.4253 16.2423 16.2277 17.269 14.6911C18.2958 13.1545 18.8438 11.348 18.8438 9.5C18.8411 7.02269 17.8559 4.64759 16.1041 2.89586C14.3524 1.14413 11.9773 0.158866 9.5 0.15625ZM9.5 17.4062C7.9363 17.4062 6.4077 16.9426 5.10753 16.0738C3.80735 15.2051 2.79399 13.9703 2.19558 12.5256C1.59718 11.0809 1.44061 9.49123 1.74567 7.95757C2.05073 6.4239 2.80373 5.01515 3.90944 3.90944C5.01515 2.80373 6.42391 2.05073 7.95757 1.74567C9.49123 1.4406 11.0809 1.59717 12.5256 2.19558C13.9703 2.79398 15.2051 3.80735 16.0738 5.10752C16.9426 6.4077 17.4063 7.93629 17.4063 9.5C17.4039 11.5961 16.5701 13.6057 15.0879 15.0879C13.6057 16.5701 11.5961 17.4039 9.5 17.4062ZM10.9375 13.8125C10.9375 14.0031 10.8618 14.1859 10.727 14.3207C10.5922 14.4555 10.4094 14.5312 10.2188 14.5312C9.83751 14.5312 9.47187 14.3798 9.20229 14.1102C8.9327 13.8406 8.78125 13.475 8.78125 13.0938V9.5C8.59063 9.5 8.40781 9.42427 8.27302 9.28948C8.13823 9.15469 8.0625 8.97187 8.0625 8.78125C8.0625 8.59063 8.13823 8.40781 8.27302 8.27302C8.40781 8.13823 8.59063 8.0625 8.78125 8.0625C9.1625 8.0625 9.52814 8.21395 9.79772 8.48353C10.0673 8.75312 10.2188 9.11875 10.2188 9.5V13.0938C10.4094 13.0938 10.5922 13.1695 10.727 13.3043C10.8618 13.4391 10.9375 13.6219 10.9375 13.8125ZM8.0625 5.54688C8.0625 5.33364 8.12573 5.1252 8.2442 4.9479C8.36267 4.7706 8.53105 4.63242 8.72805 4.55082C8.92505 4.46922 9.14183 4.44787 9.35096 4.48947C9.5601 4.53107 9.7522 4.63375 9.90298 4.78453C10.0538 4.9353 10.1564 5.12741 10.198 5.33654C10.2396 5.54568 10.2183 5.76245 10.1367 5.95946C10.0551 6.15646 9.9169 6.32484 9.7396 6.4433C9.56231 6.56177 9.35386 6.625 9.14063 6.625C8.85469 6.625 8.58047 6.51141 8.37828 6.30922C8.17609 6.10704 8.0625 5.83281 8.0625 5.54688Z" fill="#1665D8"/>
+            </svg>
+        </div>
+        <div className="ml-3 text-neutral-900">
+            <div className="text-sm font-medium text-xl">Bewerk je profiel</div>
+            <div className="mt-2 text-sm text-neutral-800">
+                <p>De wijzigingen zijn doorgevoerd en uw profiel is bewerkt. </p>
+            </div>
+        </div>
+    </div>
+</div>
 
-    <Properties>
-      <Property name="conversation_id" type="string">
-        Limit to messages from a given conversation.
-      </Property>
-      <Property name="limit" type="integer">
-        Limit the number of messages returned.
-      </Property>
-    </Properties>
+<div className="rounded-xl bg-alert-error p-4">
+    <div className="flex text-red-600">
+        <div className="flex-shrink-0 items-center p-2">
+            <svg className="h-6" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9.5 0.15625C7.65198 0.15625 5.84547 0.704251 4.30889 1.73096C2.77232 2.75766 1.57471 4.21695 0.867505 5.9243C0.160299 7.63165 -0.0247389 9.51037 0.335792 11.3229C0.696322 13.1354 1.58623 14.8003 2.89298 16.107C4.19972 17.4138 5.86462 18.3037 7.67713 18.6642C9.48964 19.0247 11.3684 18.8397 13.0757 18.1325C14.783 17.4253 16.2423 16.2277 17.269 14.6911C18.2958 13.1545 18.8438 11.348 18.8438 9.5C18.8411 7.02269 17.8559 4.64759 16.1041 2.89586C14.3524 1.14413 11.9773 0.158866 9.5 0.15625ZM9.5 17.4062C7.9363 17.4062 6.4077 16.9426 5.10753 16.0738C3.80735 15.2051 2.79399 13.9703 2.19558 12.5256C1.59718 11.0809 1.44061 9.49123 1.74567 7.95757C2.05073 6.4239 2.80373 5.01515 3.90944 3.90944C5.01515 2.80373 6.42391 2.05073 7.95757 1.74567C9.49123 1.4406 11.0809 1.59717 12.5256 2.19558C13.9703 2.79398 15.2051 3.80735 16.0738 5.10752C16.9426 6.4077 17.4063 7.93629 17.4063 9.5C17.4039 11.5961 16.5701 13.6057 15.0879 15.0879C13.6057 16.5701 11.5961 17.4039 9.5 17.4062ZM10.9375 13.8125C10.9375 14.0031 10.8618 14.1859 10.727 14.3207C10.5922 14.4555 10.4094 14.5312 10.2188 14.5312C9.83751 14.5312 9.47187 14.3798 9.20229 14.1102C8.9327 13.8406 8.78125 13.475 8.78125 13.0938V9.5C8.59063 9.5 8.40781 9.42427 8.27302 9.28948C8.13823 9.15469 8.0625 8.97187 8.0625 8.78125C8.0625 8.59063 8.13823 8.40781 8.27302 8.27302C8.40781 8.13823 8.59063 8.0625 8.78125 8.0625C9.1625 8.0625 9.52814 8.21395 9.79772 8.48353C10.0673 8.75312 10.2188 9.11875 10.2188 9.5V13.0938C10.4094 13.0938 10.5922 13.1695 10.727 13.3043C10.8618 13.4391 10.9375 13.6219 10.9375 13.8125ZM8.0625 5.54688C8.0625 5.33364 8.12573 5.1252 8.2442 4.9479C8.36267 4.7706 8.53105 4.63242 8.72805 4.55082C8.92505 4.46922 9.14183 4.44787 9.35096 4.48947C9.5601 4.53107 9.7522 4.63375 9.90298 4.78453C10.0538 4.9353 10.1564 5.12741 10.198 5.33654C10.2396 5.54568 10.2183 5.76245 10.1367 5.95946C10.0551 6.15646 9.9169 6.32484 9.7396 6.4433C9.56231 6.56177 9.35386 6.625 9.14063 6.625C8.85469 6.625 8.58047 6.51141 8.37828 6.30922C8.17609 6.10704 8.0625 5.83281 8.0625 5.54688Z" fill="currentColor"/>
+            </svg>
+        </div>
+        <div className="ml-3 text-red-700">
+            <div className="text-sm font-medium text-xl">Sollicitatie mislukt</div>
+            <div className="mt-2 text-sm text-red-700">
+                <p>De wijzigingen zijn doorgevoerd en uw profiel is bewerkt. </p>
+            </div>
+        </div>
+    </div>
+</div>
 
-  </Col>
-  <Col sticky>
-
-    <CodeGroup title="Request" tag="GET" label="/v1/messages">
-
-    ```bash {{ title: 'cURL' }}
-    curl -G https://api.protocol.chat/v1/messages \
-      -H "Authorization: Bearer {token}" \
-      -d conversation_id=xgQQXg3hrtjh7AvZ \
-      -d limit=10
-    ```
-
-    ```js
-    import ApiClient from '@example/protocol-api'
-
-    const client = new ApiClient(token)
-
-    await client.messages.list()
-    ```
-
-    ```python
-    from protocol_api import ApiClient
-
-    client = ApiClient(token)
-
-    client.messages.list()
-    ```
-
-    ```php
-    $client = new \Protocol\ApiClient($token);
-
-    $client->messages->list();
-    ```
-
-    </CodeGroup>
-
-    ```json {{ title: 'Response' }}
-    {
-      "has_more": false,
-      "data": [
-        {
-          "id": "SIuAFUNKdSYHZF2w",
-          "conversation_id": "xgQQXg3hrtjh7AvZ",
-          "contact": {
-            "id": "WAz8eIbvDR60rouK",
-            "username": "KevinMcCallister",
-            "phone_number": "1-800-759-3000",
-            "avatar_url": "https://assets.protocol.chat/avatars/buzzboy.jpg",
-            "last_active_at": 705103200,
-            "created_at": 692233200
-          },
-          "message": "It’s a nice night for a neck injury.",
-          "reactions": [],
-          "attachments": [],
-          "read_at": 705103200,
-          "created_at": 692233200,
-          "updated_at": 692233200
-        },
-        {
-          "id": "hSIhXBhNe8X1d8Et",
-          // ..
-        }
-      ]
-    }
-    ```
-
-  </Col>
-</Row>
-
----
-
-## Send a message {{ tag: 'POST', label: '/v1/messages' }}
-
-<Row>
-  <Col>
-
-    This endpoint allows you to send a new message to one of your conversations.
-
-    ### Required attributes
-
-    <Properties>
-      <Property name="conversation_id" type="string">
-        Unique identifier for the conversation the message belongs to.
-      </Property>
-      <Property name="message" type="string">
-        The message content.
-      </Property>
-    </Properties>
-
-    ### Optional attributes
-
-    <Properties>
-      <Property name="attachments" type="array">
-        An array of attachment objects associated with the message.
-      </Property>
-    </Properties>
-
-  </Col>
-  <Col sticky>
-
-    <CodeGroup title="Request" tag="POST" label="/v1/messages">
-
-    ```bash {{ title: 'cURL' }}
-    curl https://api.protocol.chat/v1/messages \
-      -H "Authorization: Bearer {token}" \
-      -d conversation_id="xgQQXg3hrtjh7AvZ" \
-      -d message="You’re what the French call ‘les incompetents.’"
-    ```
-
-    ```js
-    import ApiClient from '@example/protocol-api'
-
-    const client = new ApiClient(token)
-
-    await client.messages.send({
-      conversation_id: 'xgQQXg3hrtjh7AvZ',
-      message: 'You’re what the French call ‘les incompetents.’',
-    })
-    ```
-
-    ```python
-    from protocol_api import ApiClient
-
-    client = ApiClient(token)
-
-    client.messages.send(
-      conversation_id="xgQQXg3hrtjh7AvZ",
-      message="You’re what the French call ‘les incompetents.’",
-    )
-    ```
-
-    ```php
-    $client = new \Protocol\ApiClient($token);
-
-    $client->messages->send([
-      'conversation_id' => 'xgQQXg3hrtjh7AvZ',
-      'message' => 'You’re what the French call ‘les incompetents.’',
-    ]);
-    ```
-
-    </CodeGroup>
-
-    ```json {{ title: 'Response' }}
-    {
-      "id": "gWqY86BMFRiH5o11",
-      "conversation_id": "xgQQXg3hrtjh7AvZ",
-      "contact": {
-        "id": "inEIRvzjC6YLMX3o",
-        "username": "LinnieMcCallister",
-        "phone_number": "1-800-759-3000",
-        "avatar_url": "https://assets.protocol.chat/avatars/linnie.jpg",
-        "last_active_at": 705103200,
-        "created_at": 692233200
-      },
-      "message": "You’re what the French call ‘les incompetents.’",
-      "reactions": [],
-      "attachments": [],
-      "read_at": null,
-      "created_at": 692233200,
-      "updated_at": null
-    }
-    ```
-
-  </Col>
-</Row>
 
 ---
+## Toasters
+<div id="toast-default" className="flex items-center w-full mb-4 max-w-xs p-4 text-gray-500 bg-white rounded-lg shadow dark:text-gray-400 dark:bg-gray-800" role="alert">
+    <div className="inline-flex items-center justify-center flex-shrink-0 w-8 h-8 text-blue-500 bg-blue-100 rounded-lg dark:bg-blue-800 dark:text-blue-200">
+        <svg aria-hidden="true" className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+            <path fillRule="evenodd" d="M12.395 2.553a1 1 0 00-1.45-.385c-.345.23-.614.558-.822.88-.214.33-.403.713-.57 1.116-.334.804-.614 1.768-.84 2.734a31.365 31.365 0 00-.613 3.58 2.64 2.64 0 01-.945-1.067c-.328-.68-.398-1.534-.398-2.654A1 1 0 005.05 6.05 6.981 6.981 0 003 11a7 7 0 1011.95-4.95c-.592-.591-.98-.985-1.348-1.467-.363-.476-.724-1.063-1.207-2.03zM12.12 15.12A3 3 0 017 13s.879.5 2.5.5c0-1 .5-4 1.25-4.5.5 1 .786 1.293 1.371 1.879A2.99 2.99 0 0113 13a2.99 2.99 0 01-.879 2.121z" clipRule="evenodd"></path>
+        </svg>
+        <span className="sr-only">Fire icon</span>
+    </div>
+    <div className="ml-3 text-sm font-normal">Set yourself free.</div>
+    <button type="button" className="ml-auto -mx-1.5 -my-1.5 bg-white text-gray-400 hover:text-gray-900 rounded-lg focus:ring-2 focus:ring-gray-300 p-1.5 hover:bg-gray-100 inline-flex h-8 w-8 dark:text-gray-500 dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700" data-dismiss-target="#toast-default" aria-label="Close">
+        <span className="sr-only">Close</span>
+        <svg aria-hidden="true" className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+            <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd"></path>
+        </svg>
+    </button>
+</div>
 
-## Retrieve a message {{ tag: 'GET', label: '/v1/messages/:id' }}
+<div id="toast-default" className="flex items-center w-full mb-4 max-w-md p-4 text-gray-500 bg-toaster-info rounded-lg shadow dark:text-gray-400 dark:bg-gray-800" role="alert">
+    <div className="inline-flex items-center justify-center flex-shrink-0 w-8 h-8 text-blue-500 dark:bg-blue-800 dark:text-blue-200">
+        <svg width="32" height="31" viewBox="0 0 32 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M16 8.3125C14.5908 8.3125 13.2133 8.73037 12.0416 9.51328C10.8699 10.2962 9.95663 11.409 9.41736 12.7109C8.87808 14.0128 8.73699 15.4454 9.01191 16.8275C9.28683 18.2096 9.96542 19.4792 10.9619 20.4756C11.9583 21.4721 13.2279 22.1507 14.61 22.4256C15.9921 22.7005 17.4247 22.5594 18.7266 22.0201C20.0285 21.4809 21.1413 20.5676 21.9242 19.3959C22.7071 18.2242 23.125 16.8467 23.125 15.4375C23.123 13.5484 22.3717 11.7373 21.036 10.4015C19.7002 9.06576 17.8891 8.31446 16 8.3125ZM16 20.1875C15.0605 20.1875 14.1422 19.9089 13.361 19.387C12.5799 18.865 11.9711 18.1232 11.6116 17.2552C11.2521 16.3873 11.158 15.4322 11.3413 14.5108C11.5245 13.5894 11.9769 12.743 12.6412 12.0787C13.3055 11.4144 14.1519 10.962 15.0733 10.7788C15.9947 10.5955 16.9498 10.6896 17.8177 11.0491C18.6857 11.4086 19.4275 12.0174 19.9495 12.7985C20.4714 13.5797 20.75 14.498 20.75 15.4375C20.75 16.6973 20.2496 17.9055 19.3588 18.7963C18.468 19.6871 17.2598 20.1875 16 20.1875ZM23.125 0H8.875C6.67111 0.00235752 4.55816 0.878894 2.99978 2.43728C1.44139 3.99566 0.564858 6.10861 0.5625 8.3125V22.5625C0.564858 24.7664 1.44139 26.8793 2.99978 28.4377C4.55816 29.9961 6.67111 30.8726 8.875 30.875H23.125C25.3289 30.8726 27.4418 29.9961 29.0002 28.4377C30.5586 26.8793 31.4351 24.7664 31.4375 22.5625V8.3125C31.4351 6.10861 30.5586 3.99566 29.0002 2.43728C27.4418 0.878894 25.3289 0.00235752 23.125 0ZM29.0625 22.5625C29.0625 24.1372 28.4369 25.6474 27.3234 26.7609C26.2099 27.8744 24.6997 28.5 23.125 28.5H8.875C7.30028 28.5 5.79005 27.8744 4.67655 26.7609C3.56306 25.6474 2.9375 24.1372 2.9375 22.5625V8.3125C2.9375 6.73778 3.56306 5.22755 4.67655 4.11405C5.79005 3.00056 7.30028 2.375 8.875 2.375H23.125C24.6997 2.375 26.2099 3.00056 27.3234 4.11405C28.4369 5.22755 29.0625 6.73778 29.0625 8.3125V22.5625ZM25.5 7.71875C25.5 8.07105 25.3955 8.41543 25.1998 8.70836C25.0041 9.00128 24.7259 9.22959 24.4004 9.36441C24.0749 9.49923 23.7168 9.5345 23.3712 9.46577C23.0257 9.39704 22.7083 9.2274 22.4592 8.97828C22.2101 8.72917 22.0405 8.41178 21.9717 8.06626C21.903 7.72073 21.9383 7.36258 22.0731 7.0371C22.2079 6.71161 22.4362 6.43342 22.7291 6.23769C23.0221 6.04197 23.3665 5.9375 23.7188 5.9375C24.1912 5.9375 24.6442 6.12517 24.9783 6.45922C25.3123 6.79326 25.5 7.24633 25.5 7.71875Z" fill="white"/>
+        </svg>
+        <span className="sr-only">Fire icon</span>
+    </div>
+    <div className="ml-3 text-sm font-normal text-white">Je profiel is bijgewerkt.</div>
+    <button type="button" className="ml-auto -mx-1.5 -my-1.5 text-white hover:text-gray-900 rounded-lg focus:ring-2 focus:ring-gray-300 p-1.5 hover:bg-gray-100 inline-flex h-8 w-8 dark:text-gray-500 dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700" data-dismiss-target="#toast-default" aria-label="Close">
+        <span className="sr-only">Close</span>
+        <svg aria-hidden="true" className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+            <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd"></path>
+        </svg>
+    </button>
+</div>
 
-<Row>
-  <Col>
+<div id="toast-default" className="flex items-center w-full mb-4 max-w-md p-4 text-gray-500 bg-toaster-warning rounded-lg shadow dark:text-gray-400 dark:bg-gray-800" role="alert">
+    <div className="inline-flex items-center justify-center flex-shrink-0 w-8 h-8 text-blue-500 dark:bg-blue-800 dark:text-blue-200">
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M17.7813 23.7188C17.7813 24.071 17.6768 24.4154 17.4811 24.7084C17.2853 25.0013 17.0071 25.2296 16.6817 25.3644C16.3562 25.4992 15.998 25.5345 15.6525 25.4658C15.307 25.397 14.9896 25.2274 14.7405 24.9783C14.4914 24.7292 14.3217 24.4118 14.253 24.0663C14.1843 23.7207 14.2195 23.3626 14.3543 23.0371C14.4892 22.7116 14.7175 22.4334 15.0104 22.2377C15.3033 22.042 15.6477 21.9375 16 21.9375C16.4724 21.9375 16.9255 22.1252 17.2595 22.4592C17.5936 22.7933 17.7813 23.2463 17.7813 23.7188ZM16 7.6875C12.7255 7.6875 10.0625 10.0848 10.0625 13.0312V13.625C10.0625 13.9399 10.1876 14.242 10.4103 14.4647C10.633 14.6874 10.9351 14.8125 11.25 14.8125C11.565 14.8125 11.867 14.6874 12.0897 14.4647C12.3124 14.242 12.4375 13.9399 12.4375 13.625V13.0312C12.4375 11.3984 14.0362 10.0625 16 10.0625C17.9638 10.0625 19.5625 11.3984 19.5625 13.0312C19.5625 14.6641 17.9638 16 16 16C15.6851 16 15.383 16.1251 15.1603 16.3478C14.9376 16.5705 14.8125 16.8726 14.8125 17.1875V18.375C14.8125 18.6899 14.9376 18.992 15.1603 19.2147C15.383 19.4374 15.6851 19.5625 16 19.5625C16.315 19.5625 16.617 19.4374 16.8397 19.2147C17.0624 18.992 17.1875 18.6899 17.1875 18.375V18.2681C19.895 17.7709 21.9375 15.6111 21.9375 13.0312C21.9375 10.0848 19.2745 7.6875 16 7.6875ZM31.4375 16C31.4375 19.0532 30.5321 22.0379 28.8358 24.5766C27.1395 27.1153 24.7285 29.094 21.9077 30.2624C19.0868 31.4308 15.9829 31.7365 12.9883 31.1409C9.99372 30.5452 7.24302 29.0749 5.08405 26.916C2.92507 24.757 1.45479 22.0063 0.859134 19.0117C0.263475 16.0171 0.569189 12.9132 1.73762 10.0923C2.90604 7.27149 4.88471 4.86048 7.42339 3.16419C9.96208 1.46789 12.9468 0.5625 16 0.5625C20.093 0.566822 24.017 2.19466 26.9112 5.08881C29.8053 7.98297 31.4332 11.907 31.4375 16ZM29.0625 16C29.0625 13.4165 28.2964 10.891 26.8611 8.74286C25.4258 6.59475 23.3857 4.92049 20.9988 3.93182C18.6119 2.94315 15.9855 2.68447 13.4516 3.18849C10.9178 3.69251 8.59025 4.93659 6.76342 6.76342C4.9366 8.59024 3.69252 10.9178 3.1885 13.4516C2.68448 15.9855 2.94316 18.6119 3.93183 20.9988C4.9205 23.3857 6.59475 25.4257 8.74287 26.8611C10.891 28.2964 13.4165 29.0625 16 29.0625C19.4632 29.0586 22.7834 27.6811 25.2323 25.2322C27.6811 22.7834 29.0586 19.4632 29.0625 16Z" fill="white"/>
+        </svg>
+        <span className="sr-only">Fire icon</span>
+    </div>
+    <div className="ml-3 text-sm font-normal text-white">Letop. Het laden van deze pagina duurt langer dan gebruikelijk.</div>
+    <button type="button" className="ml-auto -mx-1.5 -my-1.5 text-white hover:text-gray-900 rounded-lg focus:ring-2 focus:ring-gray-300 p-1.5 hover:bg-gray-100 inline-flex h-8 w-8 dark:text-gray-500 dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700" data-dismiss-target="#toast-default" aria-label="Close">
+        <span className="sr-only">Close</span>
+        <svg aria-hidden="true" className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+            <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd"></path>
+        </svg>
+    </button>
+</div>
 
-    This endpoint allows you to retrieve a message by providing the message id. Refer to [the list](#the-message-model) at the top of this page to see which properties are included with message objects.
+<div id="toast-default" className="flex items-center min-w-[50%] w-fit mb-4 p-4 text-gray-500 bg-toaster-warning rounded-lg shadow dark:text-gray-400 dark:bg-gray-800" role="alert">
+    <div className="inline-flex items-center justify-center flex-shrink-0 w-8 h-8 text-blue-500 dark:bg-blue-800 dark:text-blue-200">
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M17.7813 23.7188C17.7813 24.071 17.6768 24.4154 17.4811 24.7084C17.2853 25.0013 17.0071 25.2296 16.6817 25.3644C16.3562 25.4992 15.998 25.5345 15.6525 25.4658C15.307 25.397 14.9896 25.2274 14.7405 24.9783C14.4914 24.7292 14.3217 24.4118 14.253 24.0663C14.1843 23.7207 14.2195 23.3626 14.3543 23.0371C14.4892 22.7116 14.7175 22.4334 15.0104 22.2377C15.3033 22.042 15.6477 21.9375 16 21.9375C16.4724 21.9375 16.9255 22.1252 17.2595 22.4592C17.5936 22.7933 17.7813 23.2463 17.7813 23.7188ZM16 7.6875C12.7255 7.6875 10.0625 10.0848 10.0625 13.0312V13.625C10.0625 13.9399 10.1876 14.242 10.4103 14.4647C10.633 14.6874 10.9351 14.8125 11.25 14.8125C11.565 14.8125 11.867 14.6874 12.0897 14.4647C12.3124 14.242 12.4375 13.9399 12.4375 13.625V13.0312C12.4375 11.3984 14.0362 10.0625 16 10.0625C17.9638 10.0625 19.5625 11.3984 19.5625 13.0312C19.5625 14.6641 17.9638 16 16 16C15.6851 16 15.383 16.1251 15.1603 16.3478C14.9376 16.5705 14.8125 16.8726 14.8125 17.1875V18.375C14.8125 18.6899 14.9376 18.992 15.1603 19.2147C15.383 19.4374 15.6851 19.5625 16 19.5625C16.315 19.5625 16.617 19.4374 16.8397 19.2147C17.0624 18.992 17.1875 18.6899 17.1875 18.375V18.2681C19.895 17.7709 21.9375 15.6111 21.9375 13.0312C21.9375 10.0848 19.2745 7.6875 16 7.6875ZM31.4375 16C31.4375 19.0532 30.5321 22.0379 28.8358 24.5766C27.1395 27.1153 24.7285 29.094 21.9077 30.2624C19.0868 31.4308 15.9829 31.7365 12.9883 31.1409C9.99372 30.5452 7.24302 29.0749 5.08405 26.916C2.92507 24.757 1.45479 22.0063 0.859134 19.0117C0.263475 16.0171 0.569189 12.9132 1.73762 10.0923C2.90604 7.27149 4.88471 4.86048 7.42339 3.16419C9.96208 1.46789 12.9468 0.5625 16 0.5625C20.093 0.566822 24.017 2.19466 26.9112 5.08881C29.8053 7.98297 31.4332 11.907 31.4375 16ZM29.0625 16C29.0625 13.4165 28.2964 10.891 26.8611 8.74286C25.4258 6.59475 23.3857 4.92049 20.9988 3.93182C18.6119 2.94315 15.9855 2.68447 13.4516 3.18849C10.9178 3.69251 8.59025 4.93659 6.76342 6.76342C4.9366 8.59024 3.69252 10.9178 3.1885 13.4516C2.68448 15.9855 2.94316 18.6119 3.93183 20.9988C4.9205 23.3857 6.59475 25.4257 8.74287 26.8611C10.891 28.2964 13.4165 29.0625 16 29.0625C19.4632 29.0586 22.7834 27.6811 25.2323 25.2322C27.6811 22.7834 29.0586 19.4632 29.0625 16Z" fill="white"/>
+        </svg>
+        <span className="sr-only">Fire icon</span>
+    </div>
+    <div className="ml-3 text-sm font-normal text-white">Letop. Het laden </div>
+    <button type="button" className="ml-auto -mx-1.5 -my-1.5 text-white hover:text-gray-900 rounded-lg focus:ring-2 focus:ring-gray-300 p-1.5 hover:bg-gray-100 inline-flex h-8 w-8 dark:text-gray-500 dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700" data-dismiss-target="#toast-default" aria-label="Close">
+        <span className="sr-only">Close</span>
+        <svg aria-hidden="true" className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+            <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd"></path>
+        </svg>
+    </button>
+</div>
 
-  </Col>
-  <Col sticky>
 
-    <CodeGroup title="Request" tag="GET" label="/v1/messages/SIuAFUNKdSYHZF2w">
-
-    ```bash {{ title: 'cURL' }}
-    curl https://api.protocol.chat/v1/messages/SIuAFUNKdSYHZF2w \
-      -H "Authorization: Bearer {token}"
-    ```
-
-    ```js
-    import ApiClient from '@example/protocol-api'
-
-    const client = new ApiClient(token)
-
-    await client.messages.get('SIuAFUNKdSYHZF2w')
-    ```
-
-    ```python
-    from protocol_api import ApiClient
-
-    client = ApiClient(token)
-
-    client.messages.get("SIuAFUNKdSYHZF2w")
-    ```
-
-    ```php
-    $client = new \Protocol\ApiClient($token);
-
-    $client->messages->get('SIuAFUNKdSYHZF2w');
-    ```
-
-    </CodeGroup>
-
-    ```json {{ title: 'Response' }}
-    {
-      "id": "SIuAFUNKdSYHZF2w",
-      "conversation_id": "xgQQXg3hrtjh7AvZ",
-      "contact": {
-        "id": "WAz8eIbvDR60rouK",
-        "username": "KevinMcCallister",
-        "phone_number": "1-800-759-3000",
-        "avatar_url": "https://assets.protocol.chat/avatars/kevin.jpg",
-        "last_active_at": 705103200,
-        "created_at": 692233200
-      },
-      "message": "I’m traveling with my dad. He’s at a meeting. I hate meetings.",
-      "reactions": [],
-      "attachments": [],
-      "read_at": 705103200,
-      "created_at": 692233200,
-      "updated_at": 692233200
-    }
-    ```
-
-  </Col>
-</Row>
-
----
-
-## Update a message {{ tag: 'PUT', label: '/v1/messages/:id' }}
-
-<Row>
-  <Col>
-
-    This endpoint allows you to perform an update on a message. Examples of updates are adding a reaction, editing the message, or adding an attachment.
-
-    ### Optional attributes
-
-    <Properties>
-      <Property name="message" type="string">
-        The message content.
-      </Property>
-      <Property name="reactions" type="array">
-        An array of reaction objects associated with the message.
-      </Property>
-      <Property name="attachments" type="array">
-        An array of attachment objects associated with the message.
-      </Property>
-    </Properties>
-
-  </Col>
-  <Col sticky>
-
-    <CodeGroup title="Request" tag="PUT" label="/v1/messages/SIuAFUNKdSYHZF2w">
-
-    ```bash {{ title: 'cURL' }}
-    curl -X PUT https://api.protocol.chat/v1/messages/SIuAFUNKdSYHZF2w \
-      -H "Authorization: Bearer {token}" \
-      -d reactions[red_angry_face][]="KateMcCallister"
-    ```
-
-    ```js
-    import ApiClient from '@example/protocol-api'
-
-    const client = new ApiClient(token)
-
-    await client.messages.update('SIuAFUNKdSYHZF2w', {
-        reactions: {
-            red_angry_face: ['KateMcCallister']
-        }
-    })
-    ```
-
-    ```python
-    from protocol_api import ApiClient
-
-    client = ApiClient(token)
-
-    client.messages.update("SIuAFUNKdSYHZF2w",
-        reactions={"red_angry_face": ["KateMcCallister"]})
-    ```
-
-    ```php
-    $client = new \Protocol\ApiClient($token);
-
-    $client->messages->update('SIuAFUNKdSYHZF2w', [
-      'reactions' => [
-        'red_angry_face' => ['KateMcCallister'],
-      ],
-    ]);
-    ```
-
-    </CodeGroup>
-
-    ```json {{ title: 'Response' }}
-    {
-      "id": "SIuAFUNKdSYHZF2w",
-      "conversation_id": "xgQQXg3hrtjh7AvZ",
-      "contact": {
-        "id": "WAz8eIbvDR60rouK",
-        "username": "KevinMcCallister",
-        "phone_number": "1-800-759-3000",
-        "avatar_url": "https://assets.protocol.chat/avatars/buzzboy.jpg",
-        "last_active_at": 705103200,
-        "created_at": 692233200
-      },
-      "message": "I'm not apologizing. I'd rather kiss a toilet seat.",
-      "reactions": [
-        {
-          "red_angry_face": [
-            "KateMcCallister"
-          ]
-        }
-      ],
-      "attachments": [],
-      "read_at": 705103200,
-      "created_at": 692233200,
-      "updated_at": 692233200
-    }
-    ```
-
-  </Col>
-</Row>
-
----
-
-## Delete a message {{ tag: 'DELETE', label: '/v1/messages/:id' }}
-
-<Row>
-  <Col>
-
-    This endpoint allows you to delete messages from your conversations. Note: This will permanently delete the message.
-
-  </Col>
-  <Col sticky>
-
-    <CodeGroup title="Request" tag="DELETE" label="/v1/messages/SIuAFUNKdSYHZF2w">
-
-    ```bash {{ title: 'cURL' }}
-    curl -X DELETE https://api.protocol.chat/v1/messages/SIuAFUNKdSYHZF2w \
-      -H "Authorization: Bearer {token}"
-    ```
-
-    ```js
-    import ApiClient from '@example/protocol-api'
-
-    const client = new ApiClient(token)
-
-    await client.messages.delete('SIuAFUNKdSYHZF2w')
-    ```
-
-    ```python
-    from protocol_api import ApiClient
-
-    client = ApiClient(token)
-
-    client.messages.delete("SIuAFUNKdSYHZF2w")
-    ```
-
-    ```php
-    $client = new \Protocol\ApiClient($token);
-
-    $client->messages->delete('SIuAFUNKdSYHZF2w');
-    ```
-
-    </CodeGroup>
-
-  </Col>
-</Row>

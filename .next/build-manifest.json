@@ -30,10 +30,25 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
-    "/typography": [
+    "/buttons": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/typography.js"
+      "static/chunks/pages/buttons.js"
+    ],
+    "/forms": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/forms.js"
+    ],
+    "/layout": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/layout.js"
+    ],
+    "/spacing": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/spacing.js"
     ]
   },
   "ampFirstPages": []
