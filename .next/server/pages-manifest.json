@@ -2,9 +2,7 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/": "pages/index.js",
-  "/buttons": "pages/buttons.js",
-  "/layout": "pages/layout.js",
-  "/spacing": "pages/spacing.js",
-  "/forms": "pages/forms.js"
+  "/modals": "pages/modals.js",
+  "/badges": "pages/badges.js",
+  "/tables": "pages/tables.js"
 }

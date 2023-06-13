@@ -1,14 +1,1080 @@
-import { Libraries } from '@/components/Libraries'
+[//]: # (import { Libraries } from '@/components/Libraries')
 
-export const description =
-    'Protocol offers fine-tuned JavaScript, Ruby, PHP, Python, and Go libraries to make your life easier and give you the best experience when consuming the API.'
+[//]: # ()
+[//]: # (export const description =)
 
-export const sections = [
-    { title: 'Official libraries', id: 'official-libraries' },
-]
+[//]: # (    'Protocol offers fine-tuned JavaScript, Ruby, PHP, Python, and Go libraries to make your life easier and give you the best experience when consuming the API.')
 
-# Protocol SDKs
+[//]: # ()
+[//]: # (export const sections = [)
 
-The recommended way to interact with the Protocol API is by using one of our official SDKs. Today, Protocol offers fine-tuned JavaScript, Ruby, PHP, Python, and Go libraries to make your life easier and give you the best experience when consuming the API. {{ className: 'lead' }}
+[//]: # (    { title: 'Official libraries', id: 'official-libraries' },)
 
-<Libraries />
+[//]: # (])
+
+[//]: # ()
+[//]: # (# Protocol SDKs)
+
+[//]: # ()
+[//]: # (The recommended way to interact with the Protocol API is by using one of our official SDKs. Today, Protocol offers fine-tuned JavaScript, Ruby, PHP, Python, and Go libraries to make your life easier and give you the best experience when consuming the API. {{ className: 'lead' }})
+
+[//]: # ( php)
+
+[//]: # (<Libraries />)
+
+[//]: # ()
+[//]: # (## Example using cursors)
+
+[//]: # ()
+[//]: # (<Row>)
+
+[//]: # (    <Col>)
+
+[//]: # ()
+[//]: # (        In this example, we request the page that starts after the conversation with id `s4WycXedwhQrEFuM`. As a result, we get a list of three conversations and can tell by the `has_more` attribute that we have reached the end of the resultset.)
+
+[//]: # ()
+[//]: # (        <Properties>)
+
+[//]: # (            <Property name="starting_after" type="string">)
+
+[//]: # (                The last ID on the page you're currently on when you want to fetch the next page.)
+
+[//]: # (            </Property>)
+
+[//]: # (            <Property name="ending_before" type="string">)
+
+[//]: # (                The first ID on the page you're currently on when you want to fetch the previous page.)
+
+[//]: # (            </Property>)
+
+[//]: # (            <Property name="limit" type="integer">)
+
+[//]: # (                Limit the number of items returned.)
+
+[//]: # (            </Property>)
+
+[//]: # (        </Properties>)
+
+[//]: # ()
+[//]: # (    </Col>)
+
+[//]: # (    <Col>)
+
+[//]: # ()
+[//]: # (        ```bash {{ title: 'Manual pagination using cURL' }})
+
+[//]: # (        curl -G https://api.protocol.chat/v1/conversations \)
+
+[//]: # (        -H "Authorization: Bearer {token}" \)
+
+[//]: # (        -d starting_after="s4WycXedwhQrEFuM" \)
+
+[//]: # (        -d limit=10)
+
+[//]: # (        ```)
+
+[//]: # ()
+[//]: # (        ```json {{ title: 'Paginated response' }})
+
+[//]: # (        {)
+
+[//]: # (            "has_more": false,)
+
+[//]: # (            "data": [)
+
+[//]: # (        {)
+
+[//]: # (            "id": "WAz8eIbvDR60rouK",)
+
+[//]: # (            // ...)
+
+[//]: # (        },)
+
+[//]: # (        {)
+
+[//]: # (            "id": "hSIhXBhNe8X1d8Et")
+
+[//]: # (            // ...)
+
+[//]: # (        },)
+
+[//]: # (        {)
+
+[//]: # (            "id": "fbwYwpi9C2ybt6Yb")
+
+[//]: # (            // ...)
+
+[//]: # (        })
+
+[//]: # (            ])
+
+[//]: # (        })
+
+[//]: # (        ```)
+
+[//]: # ()
+[//]: # (    </Col>)
+
+[//]: # (</Row>)
+
+[//]: # ()
+[//]: # (In this guide, we will look at how to register and consume webhooks to integrate your app with Protocol. With webhooks, your app can know when something happens in Protocol, such as someone sending a message or adding a contact. {{ className: 'lead' }})
+
+[//]: # ()
+[//]: # (## Registering webhooks)
+
+[//]: # ()
+[//]: # (To register a new webhook, you need to have a URL in your app that Protocol can call. You can configure a new webhook from the Protocol dashboard under [API settings]&#40;#&#41;. Give your webhook a name, pick the [events]&#40;#event-types&#41; you want to listen for, and add your URL.)
+
+[//]: # ()
+[//]: # (Now, whenever something of interest happens in your app, a webhook is fired off by Protocol. In the next section, we'll look at how to consume webhooks.)
+
+[//]: # ()
+[//]: # (## Consuming webhooks)
+
+[//]: # ()
+[//]: # (When your app receives a webhook request from Protocol, check the `type` attribute to see what event caused it. The first part of the event type will tell you the payload type, e.g., a conversation, message, etc.)
+
+[//]: # ()
+[//]: # (```json {{ title: 'Example webhook payload' }})
+
+[//]: # ({)
+
+[//]: # (  "id": "a056V7R7NmNRjl70",)
+
+[//]: # (  "type": "conversation.updated",)
+
+[//]: # (  "payload": {)
+
+[//]: # (    "id": "WAz8eIbvDR60rouK")
+
+[//]: # (    // ...)
+
+[//]: # (  })
+
+[//]: # (})
+
+[//]: # (```)
+
+[//]: # ()
+[//]: # (In the example above, a conversation was `updated`, and the payload type is a `conversation`.)
+
+[//]: # ()
+[//]: # (<div className="not-prose">)
+
+[//]: # (    <Button)
+
+[//]: # (        href="#event-types")
+
+[//]: # (        variant="text")
+
+[//]: # (        arrow="right")
+
+[//]: # (        children="See all event types")
+
+[//]: # (    />)
+
+[//]: # (</div>)
+
+[//]: # ()
+[//]: # (---)
+
+[//]: # ()
+[//]: # (## Event types)
+
+[//]: # ()
+[//]: # (<Row>)
+
+[//]: # (    <Col>)
+
+[//]: # ()
+[//]: # (        <Properties>)
+
+[//]: # (            <Property name="contact.created">)
+
+[//]: # (                A new contact was created.)
+
+[//]: # (            </Property>)
+
+[//]: # (            <Property name="contact.updated">)
+
+[//]: # (                An existing contact was updated.)
+
+[//]: # (            </Property>)
+
+[//]: # (            <Property name="contact.deleted">)
+
+[//]: # (                A contact was successfully deleted.)
+
+[//]: # (            </Property>)
+
+[//]: # (            <Property name="conversation.created">)
+
+[//]: # (                A new conversation was created.)
+
+[//]: # (            </Property>)
+
+[//]: # (            <Property name="conversation.updated">)
+
+[//]: # (                An existing conversation was updated.)
+
+[//]: # (            </Property>)
+
+[//]: # (            <Property name="conversation.deleted">)
+
+[//]: # (                A conversation was successfully deleted.)
+
+[//]: # (            </Property>)
+
+[//]: # (            <Property name="message.created">)
+
+[//]: # (                A new message was created.)
+
+[//]: # (            </Property>)
+
+[//]: # (            <Property name="message.updated">)
+
+[//]: # (                An existing message was updated.)
+
+[//]: # (            </Property>)
+
+[//]: # (            <Property name="message.deleted">)
+
+[//]: # (                A message was successfully deleted.)
+
+[//]: # (            </Property>)
+
+[//]: # (            <Property name="group.created">)
+
+[//]: # (                A new group was created.)
+
+[//]: # (            </Property>)
+
+[//]: # (            <Property name="group.updated">)
+
+[//]: # (                An existing group was updated.)
+
+[//]: # (            </Property>)
+
+[//]: # (            <Property name="group.deleted">)
+
+[//]: # (                A group was successfully deleted.)
+
+[//]: # (            </Property>)
+
+[//]: # (            <Property name="attachment.created">)
+
+[//]: # (                A new attachment was created.)
+
+[//]: # (            </Property>)
+
+[//]: # (            <Property name="attachment.updated">)
+
+[//]: # (                An existing attachment was updated.)
+
+[//]: # (            </Property>)
+
+[//]: # (            <Property name="attachment.deleted">)
+
+[//]: # (                An attachment was successfully deleted.)
+
+[//]: # (            </Property>)
+
+[//]: # (        </Properties>)
+
+[//]: # ()
+[//]: # (    </Col>)
+
+[//]: # (    <Col sticky>)
+
+[//]: # ()
+[//]: # (        ```json {{ 'title': 'Example payload' }})
+
+[//]: # (        {)
+
+[//]: # (            "id": "a056V7R7NmNRjl70",)
+
+[//]: # (            "type": "message.updated",)
+
+[//]: # (            "payload": {)
+
+[//]: # (            "id": "SIuAFUNKdSYHZF2w",)
+
+[//]: # (            "conversation_id": "xgQQXg3hrtjh7AvZ",)
+
+[//]: # (            "contact": {)
+
+[//]: # (            "id": "WAz8eIbvDR60rouK",)
+
+[//]: # (            "username": "KevinMcCallister",)
+
+[//]: # (            "phone_number": "1-800-759-3000",)
+
+[//]: # (            "avatar_url": "https://assets.protocol.chat/avatars/kevin.jpg",)
+
+[//]: # (            "last_active_at": 705103200,)
+
+[//]: # (            "created_at": 692233200)
+
+[//]: # (        },)
+
+[//]: # (            "message": "I’m traveling with my dad. He’s at a meeting. I hate meetings.",)
+
+[//]: # (            "reactions": [],)
+
+[//]: # (            "attachments": [],)
+
+[//]: # (            "read_at": 705103200,)
+
+[//]: # (            "created_at": 692233200,)
+
+[//]: # (            "updated_at": 692233200)
+
+[//]: # (        })
+
+[//]: # (        })
+
+[//]: # (        ```)
+
+[//]: # ()
+[//]: # (    </Col>)
+
+[//]: # (</Row>)
+
+[//]: # ()
+[//]: # (---)
+
+[//]: # ()
+[//]: # (## Security)
+
+[//]: # ()
+[//]: # (To know for sure that a webhook was, in fact, sent by Protocol instead of a malicious actor, you can verify the request signature. Each webhook request contains a header named `x-protocol-signature`, and you can verify this signature by using your secret webhook key. The signature is an HMAC hash of the request payload hashed using your secret key. Here is an example of how to verify the signature in your app:)
+
+[//]: # ()
+[//]: # (<CodeGroup title="Verifying a request">)
+
+[//]: # ()
+[//]: # (    ```js)
+
+[//]: # (    const signature = req.headers['x-protocol-signature'])
+
+[//]: # (    const hash = crypto.createHmac&#40;'sha256', secret&#41;.update&#40;payload&#41;.digest&#40;'hex'&#41;)
+
+[//]: # ()
+[//]: # (    if &#40;hash === signature&#41; {)
+
+[//]: # (    // Request is verified)
+
+[//]: # (} else {)
+
+[//]: # (    // Request could not be verified)
+
+[//]: # (})
+
+[//]: # (    ```)
+
+[//]: # ()
+[//]: # (    ```python)
+
+[//]: # (    from flask import request)
+
+[//]: # (    import hashlib)
+
+[//]: # (    import hmac)
+
+[//]: # ()
+[//]: # (    signature = request.headers.get&#40;"x-protocol-signature"&#41;)
+
+[//]: # (    hash = hmac.new&#40;bytes&#40;secret, "ascii"&#41;, bytes&#40;payload, "ascii"&#41;, hashlib.sha256&#41;)
+
+[//]: # ()
+[//]: # (    if hash.hexdigest&#40;&#41; == signature:)
+
+[//]: # (    # Request is verified)
+
+[//]: # (    else:)
+
+[//]: # (    # Request could not be verified)
+
+[//]: # (    ```)
+
+[//]: # ()
+[//]: # (    ```php)
+
+[//]: # (    $signature = $request['headers']['x-protocol-signature'];)
+
+[//]: # (    $hash = hash_hmac&#40;'sha256', $payload, $secret&#41;;)
+
+[//]: # ()
+[//]: # (    if &#40;hash_equals&#40;$hash, $signature&#41;&#41; {)
+
+[//]: # (    // Request is verified)
+
+[//]: # (} else {)
+
+[//]: # (    // Request could not be verified)
+
+[//]: # (})
+
+[//]: # (    ```)
+
+[//]: # ()
+[//]: # (</CodeGroup>)
+
+[//]: # ()
+[//]: # (If your generated signature matches the `x-protocol-signature` header, you can be sure that the request was truly coming from Protocol. It's essential to keep your secret webhook key safe — otherwise, you can no longer be sure that a given webhook was sent by Protocol. Don't commit your secret webhook key to GitHub!)
+
+[//]: # ()
+[//]: # (import { Guides } from '@/components/Guides')
+
+[//]: # (import { Resources } from '@/components/Resources')
+
+[//]: # (import { HeroPattern } from '@/components/HeroPattern')
+
+[//]: # ()
+[//]: # (export const description =)
+
+[//]: # (    'Learn everything there is to know about the Protocol API and integrate Protocol into your product.')
+
+[//]: # ()
+[//]: # (export const sections = [)
+
+[//]: # (    { title: 'Guides', id: 'guides' },)
+
+[//]: # (    { title: 'Resources', id: 'resources' },)
+
+[//]: # (])
+
+[//]: # ()
+[//]: # (<HeroPattern />)
+
+[//]: # ()
+[//]: # (# API Documentation)
+
+[//]: # ()
+[//]: # (Use the Protocol API to access contacts, conversations, group messages, and more and seamlessly integrate your product into the workflows of dozens of devoted Protocol users. {{ className: 'lead' }})
+
+[//]: # ()
+[//]: # (<div className="not-prose mb-16 mt-6 flex gap-3">)
+
+[//]: # (    <Button href="/colors" arrow="right" children="Colors" />)
+
+[//]: # (    <Button href="/sdks" variant="outline" children="Explore SDKs" />)
+
+[//]: # (</div>)
+
+[//]: # ()
+[//]: # (## Getting started {{ anchor: false }})
+
+[//]: # ()
+[//]: # (To get started, create a new application in your [developer settings]&#40;#&#41;, then read about how to make requests for the resources you need to access using our HTTP APIs or dedicated client SDKs. When your integration is ready to go live, publish it to our [integrations directory]&#40;#&#41; to reach the Protocol community. {{ className: 'lead' }})
+
+[//]: # ()
+[//]: # (<div className="not-prose">)
+
+[//]: # (    <Button)
+
+[//]: # (        href="/sdks")
+
+[//]: # (        variant="text")
+
+[//]: # (        arrow="right")
+
+[//]: # (        children="Get your API key")
+
+[//]: # (    />)
+
+[//]: # (</div>)
+
+[//]: # ()
+[//]: # (## Choose your client)
+
+[//]: # ()
+[//]: # (Before making your first API request, you need to pick which API client you will use. In addition to good ol' cURL HTTP requests, Protocol offers clients for JavaScript, Python, and PHP. In the following example, you can see how to install each client.)
+
+[//]: # ()
+[//]: # (<CodeGroup>)
+
+[//]: # ()
+[//]: # ()
+[//]: # (    ```bash {{ title: 'Vue' }})
+
+[//]: # ()
+[//]: # (    # cURL is most likely already installed on your machine)
+
+[//]: # ()
+[//]: # (    curl --version)
+
+[//]: # ()
+[//]: # (    ```)
+
+[//]: # ()
+[//]: # ()
+[//]: # ()
+[//]: # (    ```bash {{ language: 'php' }})
+
+[//]: # ()
+[//]: # (    # Install the Protocol PHP SDK)
+
+[//]: # ()
+[//]: # (    composer require protocol/sdk)
+
+[//]: # ()
+[//]: # (    ```)
+
+[//]: # ()
+[//]: # ()
+[//]: # (</CodeGroup>)
+
+[//]: # ()
+[//]: # (<div className="not-prose">)
+
+[//]: # (    <Button)
+
+[//]: # (        href="/sdks")
+
+[//]: # (        variant="text")
+
+[//]: # (        arrow="right")
+
+[//]: # (        children="Check out our list of first-party SDKs")
+
+[//]: # (    />)
+
+[//]: # (</div>)
+
+[//]: # ()
+[//]: # (## Making your first API request)
+
+[//]: # ()
+[//]: # (After picking your preferred client, you are ready to make your first call to the Protocol API. Below, you can see how to send a GET request to the Conversations endpoint to get a list of all your conversations. In the cURL example, results are limited to ten conversations, the default page length for each client.)
+
+[//]: # ()
+[//]: # (<CodeGroup tag="GET" label="/v1/conversations">)
+
+[//]: # ()
+[//]: # (    ```bash {{ title: 'cURL' }})
+
+[//]: # (    curl -G https://api.protocol.chat/v1/conversations \)
+
+[//]: # (    -H "Authorization: Bearer {token}" \)
+
+[//]: # (    -d limit=10)
+
+[//]: # (    ```)
+
+[//]: # ()
+[//]: # (    ```js)
+
+[//]: # (    import ApiClient from '@example/protocol-api')
+
+[//]: # ()
+[//]: # (    const client = new ApiClient&#40;token&#41;)
+
+[//]: # ()
+[//]: # (    await client.conversations.list&#40;&#41;)
+
+[//]: # (    ```)
+
+[//]: # ()
+[//]: # (    ```python)
+
+[//]: # (    from protocol_api import ApiClient)
+
+[//]: # ()
+[//]: # (    client = ApiClient&#40;token&#41;)
+
+[//]: # ()
+[//]: # (    client.conversations.list&#40;&#41;)
+
+[//]: # (    ```)
+
+[//]: # ()
+[//]: # (    ```php)
+
+[//]: # (    $client = new \Protocol\ApiClient&#40;$token&#41;;)
+
+[//]: # ()
+[//]: # (    $client->conversations->list&#40;&#41;;)
+
+[//]: # (    ```)
+
+[//]: # ()
+[//]: # (</CodeGroup>)
+
+[//]: # ()
+[//]: # (<div className="not-prose">)
+
+[//]: # (    <Button)
+
+[//]: # (        href="/conversations")
+
+[//]: # (        variant="text")
+
+[//]: # (        arrow="right")
+
+[//]: # (        children="Read the docs for the Conversations endpoint")
+
+[//]: # (    />)
+
+[//]: # (</div>)
+
+[//]: # ()
+[//]: # (## What's next?)
+
+[//]: # ()
+[//]: # (Great, you're now set up with an API client and have made your first request to the API. Here are a few links that might be handy as you venture further into the Protocol API:)
+
+[//]: # ()
+[//]: # (- [Grab your API key from the Protocol dashboard]&#40;#&#41;)
+
+[//]: # (- [Check out the Conversations endpoint]&#40;/conversations&#41;)
+
+[//]: # (- [Learn about the different error messages in Protocol]&#40;/errors&#41;)
+
+[//]: # ()
+[//]: # (<Guides />)
+
+[//]: # ()
+[//]: # (<Resources />)
+
+[//]: # ()
+[//]: # ()
+
+# Messages
+
+Messages are what conversations are made of in Protocol — they are the basic building blocks of your conversations with your Protocol contacts. On this page, we'll dive into the different message endpoints you can use to manage messages programmatically. We'll look at how to query, send, update, and delete messages. {{ className: 'lead' }}
+
+## The message model
+
+The message model contains all the information about the messages and attachments you send to your contacts and groups, including how your contacts have reacted to them.
+
+### Properties
+
+<Properties>
+    <Property name="id" type="string">
+        Unique identifier for the message.
+    </Property>
+    <Property name="conversation_id" type="string">
+        Unique identifier for the conversation the message belongs to.
+    </Property>
+    <Property name="contact" type="object">
+        The contact object for the contact who sent the message.
+    </Property>
+    <Property name="message" type="string">
+        The message content.
+    </Property>
+    <Property name="reactions" type="array">
+        An array of reaction objects associated with the message.
+    </Property>
+    <Property name="attachments" type="array">
+        An array of attachment objects associated with the message.
+    </Property>
+    <Property name="read_at" type="timestamp">
+        Timestamp of when the message was read.
+    </Property>
+    <Property name="created_at" type="timestamp">
+        Timestamp of when the message was created.
+    </Property>
+    <Property name="updated_at" type="timestamp">
+        Timestamp of when the message was last updated.
+    </Property>
+</Properties>
+
+---
+
+## List all messages {{ tag: 'GET', label: '/v1/messages' }}
+
+<Row>
+    <Col>
+
+        This endpoint allows you to retrieve a paginated list of all your messages (in a conversation if a conversation id is provided). By default, a maximum of ten messages are shown per page.
+
+        ### Optional attributes
+
+        <Properties>
+            <Property name="conversation_id" type="string">
+                Limit to messages from a given conversation.
+            </Property>
+            <Property name="limit" type="integer">
+                Limit the number of messages returned.
+            </Property>
+        </Properties>
+
+    </Col>
+    <Col sticky>
+
+        <CodeGroup title="Request" tag="GET" label="/v1/messages">
+
+            ```bash {{ title: 'cURL' }}
+            curl -G https://api.protocol.chat/v1/messages \
+            -H "Authorization: Bearer {token}" \
+            -d conversation_id=xgQQXg3hrtjh7AvZ \
+            -d limit=10
+            ```
+
+            ```js
+            import ApiClient from '@example/protocol-api'
+
+            const client = new ApiClient(token)
+
+            await client.messages.list()
+            ```
+
+            ```python
+            from protocol_api import ApiClient
+
+            client = ApiClient(token)
+
+            client.messages.list()
+            ```
+
+            ```php
+            $client = new \Protocol\ApiClient($token);
+
+            $client->messages->list();
+            ```
+
+        </CodeGroup>
+
+        ```json {{ title: 'Response' }}
+        {
+            "has_more": false,
+            "data": [
+        {
+            "id": "SIuAFUNKdSYHZF2w",
+            "conversation_id": "xgQQXg3hrtjh7AvZ",
+            "contact": {
+            "id": "WAz8eIbvDR60rouK",
+            "username": "KevinMcCallister",
+            "phone_number": "1-800-759-3000",
+            "avatar_url": "https://assets.protocol.chat/avatars/buzzboy.jpg",
+            "last_active_at": 705103200,
+            "created_at": 692233200
+        },
+            "message": "It’s a nice night for a neck injury.",
+            "reactions": [],
+            "attachments": [],
+            "read_at": 705103200,
+            "created_at": 692233200,
+            "updated_at": 692233200
+        },
+        {
+            "id": "hSIhXBhNe8X1d8Et",
+            // ..
+        }
+            ]
+        }
+        ```
+
+    </Col>
+</Row>
+
+---
+
+## Send a message {{ tag: 'POST', label: '/v1/messages' }}
+
+<Row>
+    <Col>
+
+        This endpoint allows you to send a new message to one of your conversations.
+
+        ### Required attributes
+
+        <Properties>
+            <Property name="conversation_id" type="string">
+                Unique identifier for the conversation the message belongs to.
+            </Property>
+            <Property name="message" type="string">
+                The message content.
+            </Property>
+        </Properties>
+
+        ### Optional attributes
+
+        <Properties>
+            <Property name="attachments" type="array">
+                An array of attachment objects associated with the message.
+            </Property>
+        </Properties>
+
+    </Col>
+    <Col sticky>
+
+        <CodeGroup title="Request" tag="POST" label="/v1/messages">
+
+            ```bash {{ title: 'cURL' }}
+            curl https://api.protocol.chat/v1/messages \
+            -H "Authorization: Bearer {token}" \
+            -d conversation_id="xgQQXg3hrtjh7AvZ" \
+            -d message="You’re what the French call ‘les incompetents.’"
+            ```
+
+            ```js
+            import ApiClient from '@example/protocol-api'
+
+            const client = new ApiClient(token)
+
+            await client.messages.send({
+            conversation_id: 'xgQQXg3hrtjh7AvZ',
+            message: 'You’re what the French call ‘les incompetents.’',
+        })
+            ```
+
+            ```python
+            from protocol_api import ApiClient
+
+            client = ApiClient(token)
+
+            client.messages.send(
+            conversation_id="xgQQXg3hrtjh7AvZ",
+            message="You’re what the French call ‘les incompetents.’",
+            )
+            ```
+
+            ```php
+            $client = new \Protocol\ApiClient($token);
+
+            $client->messages->send([
+            'conversation_id' => 'xgQQXg3hrtjh7AvZ',
+            'message' => 'You’re what the French call ‘les incompetents.’',
+            ]);
+            ```
+
+        </CodeGroup>
+
+        ```json {{ title: 'Response' }}
+        {
+            "id": "gWqY86BMFRiH5o11",
+            "conversation_id": "xgQQXg3hrtjh7AvZ",
+            "contact": {
+            "id": "inEIRvzjC6YLMX3o",
+            "username": "LinnieMcCallister",
+            "phone_number": "1-800-759-3000",
+            "avatar_url": "https://assets.protocol.chat/avatars/linnie.jpg",
+            "last_active_at": 705103200,
+            "created_at": 692233200
+        },
+            "message": "You’re what the French call ‘les incompetents.’",
+            "reactions": [],
+            "attachments": [],
+            "read_at": null,
+            "created_at": 692233200,
+            "updated_at": null
+        }
+        ```
+
+    </Col>
+</Row>
+
+---
+
+## Retrieve a message {{ tag: 'GET', label: '/v1/messages/:id' }}
+
+<Row>
+    <Col>
+
+        This endpoint allows you to retrieve a message by providing the message id. Refer to [the list](#the-message-model) at the top of this page to see which properties are included with message objects.
+
+    </Col>
+    <Col sticky>
+
+        <CodeGroup title="Request" tag="GET" label="/v1/messages/SIuAFUNKdSYHZF2w">
+
+            ```bash {{ title: 'cURL' }}
+            curl https://api.protocol.chat/v1/messages/SIuAFUNKdSYHZF2w \
+            -H "Authorization: Bearer {token}"
+            ```
+
+            ```js
+            import ApiClient from '@example/protocol-api'
+
+            const client = new ApiClient(token)
+
+            await client.messages.get('SIuAFUNKdSYHZF2w')
+            ```
+
+            ```python
+            from protocol_api import ApiClient
+
+            client = ApiClient(token)
+
+            client.messages.get("SIuAFUNKdSYHZF2w")
+            ```
+
+            ```php
+            $client = new \Protocol\ApiClient($token);
+
+            $client->messages->get('SIuAFUNKdSYHZF2w');
+            ```
+
+        </CodeGroup>
+
+        ```json {{ title: 'Response' }}
+        {
+            "id": "SIuAFUNKdSYHZF2w",
+            "conversation_id": "xgQQXg3hrtjh7AvZ",
+            "contact": {
+            "id": "WAz8eIbvDR60rouK",
+            "username": "KevinMcCallister",
+            "phone_number": "1-800-759-3000",
+            "avatar_url": "https://assets.protocol.chat/avatars/kevin.jpg",
+            "last_active_at": 705103200,
+            "created_at": 692233200
+        },
+            "message": "I’m traveling with my dad. He’s at a meeting. I hate meetings.",
+            "reactions": [],
+            "attachments": [],
+            "read_at": 705103200,
+            "created_at": 692233200,
+            "updated_at": 692233200
+        }
+        ```
+
+    </Col>
+</Row>
+
+---
+
+## Update a message {{ tag: 'PUT', label: '/v1/messages/:id' }}
+
+<Row>
+    <Col>
+
+        This endpoint allows you to perform an update on a message. Examples of updates are adding a reaction, editing the message, or adding an attachment.
+
+        ### Optional attributes
+
+        <Properties>
+            <Property name="message" type="string">
+                The message content.
+            </Property>
+            <Property name="reactions" type="array">
+                An array of reaction objects associated with the message.
+            </Property>
+            <Property name="attachments" type="array">
+                An array of attachment objects associated with the message.
+            </Property>
+        </Properties>
+
+    </Col>
+    <Col sticky>
+
+        <CodeGroup title="Request" tag="PUT" label="/v1/messages/SIuAFUNKdSYHZF2w">
+
+            ```bash {{ title: 'cURL' }}
+            curl -X PUT https://api.protocol.chat/v1/messages/SIuAFUNKdSYHZF2w \
+            -H "Authorization: Bearer {token}" \
+            -d reactions[red_angry_face][]="KateMcCallister"
+            ```
+
+            ```js
+            import ApiClient from '@example/protocol-api'
+
+            const client = new ApiClient(token)
+
+            await client.messages.update('SIuAFUNKdSYHZF2w', {
+            reactions: {
+            red_angry_face: ['KateMcCallister']
+        }
+        })
+            ```
+
+            ```python
+            from protocol_api import ApiClient
+
+            client = ApiClient(token)
+
+            client.messages.update("SIuAFUNKdSYHZF2w",
+            reactions={"red_angry_face": ["KateMcCallister"]})
+            ```
+
+            ```php
+            $client = new \Protocol\ApiClient($token);
+
+            $client->messages->update('SIuAFUNKdSYHZF2w', [
+            'reactions' => [
+            'red_angry_face' => ['KateMcCallister'],
+            ],
+            ]);
+            ```
+
+        </CodeGroup>
+
+        ```json {{ title: 'Response' }}
+        {
+            "id": "SIuAFUNKdSYHZF2w",
+            "conversation_id": "xgQQXg3hrtjh7AvZ",
+            "contact": {
+            "id": "WAz8eIbvDR60rouK",
+            "username": "KevinMcCallister",
+            "phone_number": "1-800-759-3000",
+            "avatar_url": "https://assets.protocol.chat/avatars/buzzboy.jpg",
+            "last_active_at": 705103200,
+            "created_at": 692233200
+        },
+            "message": "I'm not apologizing. I'd rather kiss a toilet seat.",
+            "reactions": [
+        {
+            "red_angry_face": [
+            "KateMcCallister"
+            ]
+        }
+            ],
+            "attachments": [],
+            "read_at": 705103200,
+            "created_at": 692233200,
+            "updated_at": 692233200
+        }
+        ```
+
+    </Col>
+</Row>
+
+---
+
+## Delete a message {{ tag: 'DELETE', label: '/v1/messages/:id' }}
+
+<Row>
+    <Col>
+
+        This endpoint allows you to delete messages from your conversations. Note: This will permanently delete the message.
+
+    </Col>
+    <Col sticky>
+
+        <CodeGroup title="Request" tag="DELETE" label="/v1/messages/SIuAFUNKdSYHZF2w">
+
+            ```bash {{ title: 'cURL' }}
+            curl -X DELETE https://api.protocol.chat/v1/messages/SIuAFUNKdSYHZF2w \
+            -H "Authorization: Bearer {token}"
+            ```
+
+            ```js
+            import ApiClient from '@example/protocol-api'
+
+            const client = new ApiClient(token)
+
+            await client.messages.delete('SIuAFUNKdSYHZF2w')
+            ```
+
+            ```python
+            from protocol_api import ApiClient
+
+            client = ApiClient(token)
+
+            client.messages.delete("SIuAFUNKdSYHZF2w")
+            ```
+
+            ```php
+            $client = new \Protocol\ApiClient($token);
+
+            $client->messages->delete('SIuAFUNKdSYHZF2w');
+            ```
+
+        </CodeGroup>
+
+    </Col>
+</Row>
+s

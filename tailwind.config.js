@@ -1,4 +1,4 @@
-/** @type {import('tailwindcss').Config} */
+require('tailwindcss/plugin');
 module.exports = {
   content: ['./{src,mdx}/**/*.{js,mjs,jsx,mdx}'],
   darkMode: 'class',
@@ -21,6 +21,9 @@ module.exports = {
     },
     typography: require('./typography'),
     extend: {
+      fontFamily: {
+        custom: ['FigTree Variable', 'sans-serif'],
+      },
       boxShadow: {
         glow: '0 0 4px rgb(0 0 0 / 0.1)',
       },
@@ -69,8 +72,25 @@ module.exports = {
         'custom-blue' : '#62B8E8',
         'custom-purple' : '#6F86E3',
         'custom-black' : '#555555',
+        'alert-primary' : '#1665D8',
+        'alert-success' : '#EAF2EB',
+        'alert-warning' : '#FFF0E7',
+        'alert-info' : '#F8F9FD',
+        'alert-error' : '#FBE9E9',
+        'toaster-success' : '#34AA44',
+        'toaster-info' : '#1665D8',
+        'toaster-warning' : '#F6AB2F',
+        'toaster-error' : '#E6492D',
+        'badge-default' : '#FF5050',
+        'badge-error' : '#F6AB2F',
+        'badge-success' : '#66B96F',
       },
     },
   },
-  plugins: [require('@tailwindcss/typography')],
+  plugins: [
+    require('@tailwindcss/typography'),
+    require('@tailwindcss/forms'),
+
+    // Your own plugins go here
+  ],
 }
