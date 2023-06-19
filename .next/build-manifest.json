@@ -25,20 +25,10 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
-    "/badges": [
+    "/layout": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/badges.js"
-    ],
-    "/modals": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/modals.js"
-    ],
-    "/tables": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/tables.js"
+      "static/chunks/pages/layout.js"
     ]
   },
   "ampFirstPages": []

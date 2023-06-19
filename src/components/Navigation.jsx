@@ -196,7 +196,6 @@ export const navigation = [
       { title: 'Forms', href: '/forms' },
       { title: 'Badges', href: '/badges' },
       { title: 'Tables', href: '/tables' },
-      { title: 'test', href: '/test.jsx' },
     ],
   },
   {
